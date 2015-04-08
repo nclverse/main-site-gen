@@ -1,0 +1,57 @@
+* Namespaces
+
+#+BEGIN_SRC clojurescript :tangle yes
+
+(ns main-site-gen.core
+    (:require))
+
+(enable-console-print!)
+
+#+END_SRC
+
+* Sample
+  
+* Canvas Helpers
+  
+  #+BEGIN_SRC clojurescript :tangle yes
+
+(defn ctx [canvasId]
+(.getContext (.getElementById js/document canvasId)))
+
+(defn radial-gradient [ctx [x0 y0] r0 [x1 y1] r1]
+(.createRadialGradient ctx (x0,y0,r0,x1,y1,r1)))
+
+(defn add-stop [grd loc color]
+(.addColorStop grd loc color))
+
+(defn set-fillstyle [ctx style]
+(set! (.ctx -fillStyle) style))
+
+(defn fillRect [ctx x y w h]
+(.ctx fillRect x y w h))
+
+
+(println ctx)
+
+  #+END_SRC
+
+* Background
+
+#+BEGIN_SRC clojurescript :tangle yes
+
+(def canvasId "42")
+
+(def drawboard (ctx "42"))
+
+(fillRect ctx 0 0 100 200)
+
+#+END_SRC
+  
+* Stars
+
+* Apps
+
+* Main Banner
+
+ #+BEGIN_SRC html
+ #+END_SRC
